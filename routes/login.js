@@ -28,7 +28,7 @@ post(async (req,res)=>{
                         {found},
                         process.env.TOKEN_KEY,
                       );
-                    res.status(200).json(JSON.stringify(token));  
+                    res.redirect("dashboard");  
                 }else{
                     res.status(401).send('wrong password');
                 }

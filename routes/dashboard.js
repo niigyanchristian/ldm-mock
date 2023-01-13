@@ -16,7 +16,7 @@ get((req, res) =>{
     Student.find((err,findStudent)=>{
         if(find.length>0){
             let mockId = find[find.length-1]._id.toString();
-            res.render("dashboard",{mock:find,students:findStudent,mockId});
+            res.render("home",{mock:find,students:findStudent,mockId});
         }else{
             res.render("addmock")
         }

@@ -43,7 +43,7 @@ app.use('/stats', statsRoute);
 
 app.get("/", function(req, res) {
 
-    res.redirect("dashboard");
+    res.redirect("login");
      
 });
 
