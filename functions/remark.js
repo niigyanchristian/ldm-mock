@@ -1,7 +1,7 @@
 const getRemark=(value)=>{
-    if(value<=10 && value >= 6){
+    if(value<=9 && value >= 6){
         return "Highest";
-    }else if(value<=14 && value >= 11){
+    }else if(value<=14 && value >= 10){
         return "Higher";
     }else if(value<=19 && value >= 15){
         return "High";
