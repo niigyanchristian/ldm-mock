@@ -41,9 +41,6 @@ get((req, res) =>{
                }
             });
             Mock.findById(mockID,(err,mockName)=>{
-                console.log('====================================');
-                console.log(mockName.mockName);
-                console.log('====================================');
                 res.render("stats",{
                     mock:find,students:findStudent,Maths,Science,English,Social,RME,ICT,TWI,French,BDT,mockName:mockName.mockName
                 });

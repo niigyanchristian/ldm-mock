@@ -10,14 +10,12 @@ const router = express.Router();
 router.route('/:id')
 .get(async (req,res)=>{
      const id = req.params.id;
-     console.log("id",id);
     const addresult=()=>{
         Mock.findById(id,async (err,find)=>{
-            // console.log('====================================');
-        //     const data=[]
+
            await find.students.forEach(async element => {
                 Student.findById(element._id,(err,findStudent)=>{
-                //    / console.log(findStudent.aggregate);
+                
                     Result.findOne({name:findStudent.name},(err,find)=>{
                         if(!find){
                             Result.create({
@@ -34,13 +32,12 @@ router.route('/:id')
                                 BDT: findStudent.BDT,
                                 aggregate: findStudent.aggregate,
                                 remarks: getRemark(findStudent.aggregate)
-                            }).then((item)=>{console.log("added",item)
-                        }).catch((e)=> {throw e})
+                            }).then((item)=>{console.log("student added!")
+                        }).catch((e)=> {console.log(e)})
                         }
                     })
                     
                 })
-                console.log(2);
             });
         })
         

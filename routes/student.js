@@ -13,16 +13,12 @@ router.route('/').
 get((req, res) =>{
 
     Mock.find((err,find)=>{
-console.log(find);
         res.render("addstudent",{mock:find});
     })
      
 }).
 post(async (req,res)=>{
     let {studentname,English,Maths,Social,Science,RME,ICT,TWI,BDT,French,mockId} = req.body;
-    console.log('====================================');
-    console.log(studentname,English,Maths,Social,Science,RME,ICT,TWI,BDT,French,mockId);
-    console.log('====================================');
    let aggregate= calcAggregate(ICT,RME,TWI,French,BDT,English,Maths,Social,Science)
     const student = new Student({
         name: studentname,
@@ -40,9 +36,6 @@ post(async (req,res)=>{
     });
     const addStudent=(id)=>{
         Mock.findById(mockId,(err,findMock)=>{
-            console.log('====================================xxxxxxx');
-            console.log(id.toString());
-            console.log('====================================');
             findMock.students.push(id.toString());
             findMock.save();
         })
@@ -53,7 +46,6 @@ post(async (req,res)=>{
     student.save((err)=>{
         if(!err){
             addStudent(student._id);
-            // res.status(201).send("Added a student successfully"+student);
             res.redirect('dashboard')
         }
     })
