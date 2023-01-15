@@ -14,24 +14,16 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">Lawrence Demonstration Mock Result for <%=mockName%></a>
-        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon text-white"></span>
-        </button>
-        <!-- <div class="collapse navbar-collapse ms-lg-5" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link text-white mx-3 active" aria-current="page" href="#">Create mock</a>
-            <a class="nav-link text-white mx-3" href="#">All mocks</a>
-          </div>
-        </div> -->
+      <div class="container-fluid" style="width: auto;">
+        <p class="navbar-brand text-white">Lawrence Demonstration Mock Result for <%=mockName%></p>
       </div>
     </nav>
     <div class="row d-flex justify-content-center pt-5 ps-5 px-5">
       <table class="table" id="makepdf">
         <thead>
           <tr>
-              <th scope="col">Student Name</th>
+            <th scope="col">Position</th>
+              <th scope="col">Name</th>
               <th scope="col">ENG</th>
               <th scope="col">Soc</th>
               <th scope="col">Maths</th>
@@ -43,14 +35,13 @@
               <th scope="col">BDT</th>
               <th scope="col">Agg</th>
               <th scope="col">Remark</th>
-              <th scope="col">Position</th>
           </tr>
         </thead>
         <tbody>
           <% data.forEach((item)=>{ %>
           <tr>
+              <th><%= item.position %></th>
               <td><%= item.name %></td>
-              
               <td><%= item.English %></td>
               <td><%= item.Social %></td>
               <td><%= item.Maths %></td>
@@ -62,7 +53,7 @@
               <td><%= item.BDT %></td>
               <td><%= item.aggregate %></td>
               <td><%= item.remarks %></td>
-              <th scope="row"><%= item.position %></th>
+              
               
             </tr>
             <% }) %>

@@ -15,7 +15,7 @@ const statsRoute = require('./routes/stats');
 const Student=require('./models/student')
 const Mock=require('./models/mock')
 const Result=require('./models/results')
-const aggregateFunc = require('./functions/aggregate');
+// const aggregateFunc = require('./functions/aggregate');
 const { getRemark } = require('./functions/remark');
 const app = express();
 app.set('view engine', 'ejs');
