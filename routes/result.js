@@ -84,8 +84,10 @@ router.route('/:id')
                 }else{
                     
                     Mock.findById(id,(err,findMockName)=>{
-                        
-                        res.render("results",{data:find,mockName:findMockName.mockName})
+                       let sortedData = find.sort((a,b)=>{
+                            return a.aggregate - b.aggregate;
+                        })
+                        res.render("results",{data:sortedData,mockName:findMockName.mockName})
                     })
                 }
 
