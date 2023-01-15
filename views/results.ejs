@@ -22,18 +22,18 @@
       <table class="table table-bordered" id="makepdf">
         <thead>
           <tr>
-            <th scope="col">Position</th>
-              <th scope="col">Name</th>
-              <th scope="col">ENG</th>
-              <th scope="col">Soc</th>
-              <th scope="col">Maths</th>
-              <th scope="col">SCI</th>
+            <th scope="col">POS</th>
+              <th scope="col">NAME</th>
+              <th scope="col">ENGLISH</th>
+              <th scope="col">SOCIAL</th>
+              <th scope="col">MATHS</th>
+              <th scope="col">SCIENCE</th>
               <th scope="col">RME</th>
               <th scope="col">ICT</th>
               <th scope="col">TWI</th>
-              <th scope="col">French</th>
+              <th scope="col">FRENCH</th>
               <th scope="col">BDT</th>
-              <th scope="col">Agg</th>
+              <th scope="col">AGGREGATE</th>
               <th scope="col" style="font-style: italic;">Remark</th>
           </tr>
         </thead>
@@ -52,7 +52,33 @@
               <td><%= item.French %></td>
               <td><%= item.BDT %></td>
               <td><%= item.aggregate %></td>
-              <td style=" font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+              <% if(item.remarks === "Highest") {%>
+                <td style="color: green; font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+                
+                <%}else if(item.remarks === "Higher"){%>
+                  <td style="color: magenta; font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+                
+                <%}else if(item.remarks === "High"){%>
+                  <td style="color: rgb(17, 0, 255); font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+                
+                <%}else if(item.remarks === "High Average"){%>
+                  <td style="color: orange; font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+                
+                <%}else if(item.remarks === "Average"){%>
+                  <td style="color: purple; font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+                
+                <%}else if(item.remarks === "Low Average"){%>
+                  <td style="color: rgb(16, 224, 197); font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+
+                <%}else if(item.remarks === "Low"){%>
+                  <td style="color: rgb(128, 0, 90); font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+                
+                <%}else if(item.remarks === "Lower"){%>
+                  <td style="color:deeppink; font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+                
+                <%}else{%>
+                  <td style="color: red; font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+                  <%}%>
               
               
             </tr>
