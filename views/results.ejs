@@ -14,8 +14,10 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark">
-      <div class="container-fluid" style="width: auto;">
-        <p class="navbar-brand text-white">Lawrence Demonstration Mock Result for <%=mockName%></p>
+      <div class="container-fluid" style="width: auto; display: block;">
+        <h1 class="navbar-brand text-white" style="font-size: 30px; text-align: center; text-transform: uppercase;">Lawrence Demonstration School</h1>
+        <p class="navbar-brand text-white" style="text-align: center;text-transform:uppercase;">(Junior High School Department)</p>
+        <p class="navbar-brand text-white" style="text-align: center;text-transform:uppercase;">Result for <%=mockName%></p>
       </div>
     </nav>
     <div class="row d-flex justify-content-center pt-5 ps-5 px-5">
@@ -52,8 +54,11 @@
               <td><%= item.French %></td>
               <td><%= item.BDT %></td>
               <td><%= item.aggregate %></td>
-              <% if(item.remarks === "Highest") {%>
-                <td style="color: green; font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+              <% if(item.remarks === "Distinction") {%>
+                <td style="color: gold; font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
+                
+                <%}else if(item.remarks === "Highest"){%>
+                  <td style="color: green; font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>
                 
                 <%}else if(item.remarks === "Higher"){%>
                   <td style="color: magenta; font-family: 'Times New Roman', Times, serif;"><%= item.remarks %></td>

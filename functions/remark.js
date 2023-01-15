@@ -1,9 +1,13 @@
 const getRemark=(value)=>{
-    if(value<=9 && value >= 6){
+    if(value<=7 && value >= 6){
+        return "Distinction";
+    }else if(value<=9 && value >= 8){
         return "Highest";
-    }else if(value<=14 && value >= 10){
+    }
+    else if(value<=14 && value >= 10){
         return "Higher";
-    }else if(value<=19 && value >= 15){
+    }
+    else if(value<=19 && value >= 15){
         return "High";
     }else if(value<=24 && value >= 20){
         return "High Average";

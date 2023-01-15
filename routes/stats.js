@@ -40,12 +40,14 @@ get((req, res) =>{
                    BDT=BDT+element.BDT;
                }
             });
-            console.log('====================================');
-            console.log(mockID);
-            console.log('====================================');
-            res.render("stats",{
-                mock:find,students:findStudent,Maths,Science,English,Social,RME,ICT,TWI,French,BDT,
-            });
+            Mock.findById(mockID,(err,mockName)=>{
+                console.log('====================================');
+                console.log(mockName.mockName);
+                console.log('====================================');
+                res.render("stats",{
+                    mock:find,students:findStudent,Maths,Science,English,Social,RME,ICT,TWI,French,BDT,mockName:mockName.mockName
+                });
+            })
         }else{
             res.render("addmock")
         }
