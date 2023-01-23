@@ -4,7 +4,6 @@ const User = require('../models/user');
 const Mock = require('../models/mock');
 const Student = require('../models/student');
 const jwt = require('jsonwebtoken');
-const { getAggregate } = require('../aggregate');
 const { calcAggregate } = require('../functions/calcAggregate');
 const router = express.Router();
 // const aggregateFunc = require('../functions/aggregate');
