@@ -9,8 +9,7 @@ router.route('/').
 post(function(req, res) {
     const {studentId, mockId,studentname} = req.body;
     Mock.findById(mockId,(err,find)=>{
-     const f=[1,3];
-     // f.filter
+     
      
      const data = find.students.filter(check);
          function check(item){

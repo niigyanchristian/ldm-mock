@@ -76,6 +76,7 @@
 </style>
 <script>
     let data;
+    let data2;
     // addEventListener
     function myFunction() {
        data=document.getElementById("myText").value;
@@ -84,7 +85,15 @@
 function direct(){
 myFunction()
 window.location.href = "result/"+data;
+} 
+function myFunctionTwo() {
+       data2=document.getElementById("myText2").value;
+      console.log("data",data2);
 }
+// function directTwo(){
+// myFunctionTwo()
+// window.location.href = "delete/"+data2;
+// } 
   </script>
 <body>
     <div class="bgbox">
@@ -100,7 +109,7 @@ window.location.href = "result/"+data;
           <div class="collapse navbar-collapse ms-lg-5" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link text-white mx-3 active " data-bs-toggle="modal" data-bs-target="#exampleModal" aria-current="page" href="#">Create mock</a>
-              <a class="nav-link text-white mx-3" href="#">All mocks</a>
+              <a class="nav-link text-white mx-3 active " data-bs-toggle="modal" data-bs-target="#exampleModal2" aria-current="page" href="#">Delete mock</a>
             </div>
           </div>
         </div>
@@ -116,6 +125,28 @@ window.location.href = "result/"+data;
               <form action="/mock" method="post">
                 <input type="text" placeholder="Enter mock name" name="mockName" class="form-control">
                 <input class="btn btn-primary mt-4" type="submit" value="Create Mock">
+              </form> 
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"><h5>Add A Mock</h5></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="/deletemock" method="post">
+                <div class="form-group">
+                  <select class="form-control" id="myText2" name="mockId" onchange="myFunctionTwo()">
+                      <% mock.forEach((item)=>{ %>
+                   <option value="<%= item._id %>"><%= item.mockName %></option>
+                   <% }) %>
+                  </select>
+              </div>
+                <input class="btn btn-danger mt-4" type="submit" value="Delete Mock">
               </form> 
             </div>
           </div>
@@ -176,27 +207,27 @@ window.location.href = "result/"+data;
                               <div class="col">
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">English</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="100%" min="0" max="9" name="English" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="English" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Maths</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="100%" min="0" max="9" name="Maths" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="Maths" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Social</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="100%" min="0" max="9" name="Social" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="Social" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Science</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="100%" min="0" max="9" name="Science" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="Science" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">BDT</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="100%" min="0" max="9" name="BDT" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="BDT" required>
                                      
                                     </div>
                                     
@@ -204,22 +235,22 @@ window.location.href = "result/"+data;
                               <div class="col">
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">RME</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="100%" min="0" max="9" name="RME" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="RME" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">ICT</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="100%" min="0" max="9" name="ICT" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="ICT" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">TWI</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="100%" min="0" max="9" name="TWI" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="TWI" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">French</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="100%" min="0" max="9" name="French" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="French" required>
                                      
                                     </div>
                                   <!-- <div class="row mt-5 mx-2">

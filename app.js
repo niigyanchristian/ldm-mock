@@ -10,6 +10,7 @@ const studentRoute = require('./routes/student');
 const resultRoute = require('./routes/result');
 const mockRoute = require('./routes/mock');
 const dashboardRoute = require('./routes/dashboard');
+const deletemockRoute = require('./routes/deletemock');
 const statsRoute = require('./routes/stats');
 const deletestudentRoute = require('./routes/deletestudent');
 
@@ -29,6 +30,7 @@ console.log('MongoDB CONNECTED!');
 //END POINTS
 app.use('/login',loginRoute);
 app.use('/register',registerRoute);
+app.use('/deletemock',deletemockRoute);
 app.use('/result',resultRoute);
 app.use('/student',studentRoute);
 app.use('/mock',mockRoute);
