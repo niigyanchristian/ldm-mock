@@ -9,6 +9,7 @@ const mongoose =require('mongoose');
 
 const MongoDB =require('./utils/connectMongoDB');
 const studentRoute = require('./routes/student');
+const editStudentRoute = require('./routes/editStudent');
 const resultRoute = require('./routes/result');
 const mockRoute = require('./routes/mock');
 const dashboardRoute = require('./routes/dashboard');
@@ -55,6 +56,7 @@ app.use('/result',resultRoute);
 app.use('/student',studentRoute);
 app.use('/mock',mockRoute);
 app.use('/dashboard',dashboardRoute);
+app.use('/editstudent',editStudentRoute);
 app.use('/stats', statsRoute);
 app.use('/deletestudent', deletestudentRoute);
 

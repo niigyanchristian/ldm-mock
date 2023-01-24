@@ -8,7 +8,7 @@ router.route('/').
 post(async (req,res)=>{
     if(req.isAuthenticated()){
     let {studentname,English,Maths,Social,Science,RME,ICT,TWI,BDT,French,mockId} = req.body;
-   let aggregate= calcAggregate(ICT,RME,TWI,French,BDT,English,Maths,Social,Science)
+   let aggregate= calcAggregate(ICT,RME,TWI,French,BDT,English,Maths,Social,Science);
     const student = new Student({
         name: studentname,
         mockId,

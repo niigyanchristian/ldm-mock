@@ -209,27 +209,27 @@ function myFunctionTwo() {
                               <div class="col">
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">English</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="English" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="English" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Maths</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="Maths" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="Maths" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Social</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="Social" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="Social" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Science</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="Science" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="Science" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">BDT</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="BDT" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="BDT" required>
                                      
                                     </div>
                                     
@@ -237,22 +237,22 @@ function myFunctionTwo() {
                               <div class="col">
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">RME</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="RME" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="RME" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">ICT</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="ICT" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="ICT" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">TWI</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="TWI" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="TWI" required>
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">French</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" name="French" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="French" required>
                                      
                                     </div>
                           
@@ -289,7 +289,7 @@ function myFunctionTwo() {
                             <div class="col-5  p-2" style="background-color: rgba(30, 56, 133, 0.063);"><%= item.name %></div>
                             <div class="col-3 px-3 p-2" style="background-color: rgba(11, 229, 32, 0.062);"><%= item.aggregate %></div>
                             <div class="col-4 edit_container d-sm-flex p-1" style="background-color: rgba(210, 93, 75, 0.063);">
-                                <a href="#" class="bg-dark edit_btn p-2 px-3 rounded text-white" style="height: 38px;">edit</a>
+                                <a href="/editstudent/<%= item._id%>" class="bg-dark edit_btn p-2 px-3 rounded text-white" style="height: 38px;">edit</a>
                                 <form class="delete_form" action="/deletestudent" method="post">
                                     <input type="text" hidden name="studentId" value="<%= item._id %>">
                                     <input type="text" hidden name="mockId" value="<%= item.mockId %>">
