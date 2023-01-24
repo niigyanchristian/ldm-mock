@@ -1,7 +1,5 @@
 const express = require('express');
-const _ = require('lodash');
 const Mock = require('../models/mock');
-const jwt = require('jsonwebtoken');
 const Student=require('../models/student')
 const Result=require('../models/results')
 const { getRemark } = require('../functions/remark');
@@ -9,6 +7,9 @@ const router = express.Router();
 
 router.route('/:id')
 .get(async (req,res)=>{
+    if(req.isAuthenticated()){
+    
+    
      const id = req.params.id;
     const addresult=()=>{
         Mock.findById(id,async (err,find)=>{
@@ -92,7 +93,9 @@ router.route('/:id')
         }
     await addresult();
     getResult(1);
-        
+}else{
+    res.redirect("/login");
+} 
 });
 
 module.exports = router;

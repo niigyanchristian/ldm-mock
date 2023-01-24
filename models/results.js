@@ -54,6 +54,6 @@ const resultSchema = new mongoose.Schema({
     }
 });
 
-const Result = mongoose.models.Result || new mongoose.model("Result", resultSchema);
+const Result = new mongoose.model("Result", resultSchema);
 
 module.exports = Result;

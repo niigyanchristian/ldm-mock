@@ -1,16 +1,11 @@
 const express = require('express');
-const _ = require('lodash');
-const User = require('../models/user');
 const Mock = require('../models/mock');
 const Student = require('../models/student');
-const jwt = require('jsonwebtoken');
-// const { getAggregate } = require('../functions/aggregate');
-const { calcAggregate } = require('../functions/calcAggregate');
 const router = express.Router();
-// const aggregateFunc = require('../functions/aggregate');
 
 router.route('/:mockId').
 get((req, res) =>{
+    if(req.isAuthenticated()){
   let mockID=  req.params.mockId;
 
     let Maths=0;
@@ -23,11 +18,9 @@ get((req, res) =>{
     let French=0;
     let BDT=0;
     Mock.find((err,find)=>{
-// console.log(find);
     Student.find((err,findStudent)=>{
         if(find.length>0){
             findStudent.forEach(element => {
-            //    console.log(element);
                if(element.mockId === mockID){
                    Maths=Maths+element.Maths;
                    Science=Science+element.Science;
@@ -50,7 +43,9 @@ get((req, res) =>{
         }
     })
     })
-     
+}else{
+    res.redirect("/login");
+} 
 });
 
 

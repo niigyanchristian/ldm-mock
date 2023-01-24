@@ -1,5 +1,4 @@
 const express = require('express');
-const _ = require('lodash');
 const Mock = require('../models/mock');
 const Result = require('../models/results');
 const Student = require('../models/student');
@@ -7,6 +6,7 @@ const router = express.Router();
 
 router.route('/').
 post(function(req, res) {
+    if(req.isAuthenticated()){
     const {studentId, mockId,studentname} = req.body;
     Mock.findById(mockId,(err,find)=>{
      
@@ -23,7 +23,9 @@ post(function(req, res) {
     Student.findByIdAndDelete(studentId,(err,find)=>{
      !err ? res.redirect("/dashboard") : null;
     })
-      
+}else{
+    res.redirect("/login");
+}
  });
 
 

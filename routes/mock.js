@@ -1,14 +1,12 @@
 const express = require('express');
-const _ = require('lodash');
 const Mock = require('../models/mock');
-const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
 router.route('/')
 .post(async (req,res)=>{
+    if(req.isAuthenticated()){
     let {mockName} = req.body;
-    console.log("entered");
     Mock.findOne({mockName:mockName},(err,find)=>{
         if(!err && !find){
             Mock.create({
@@ -20,6 +18,9 @@ router.route('/')
             res.send("Mr. Eric "+mockName+" already exist as mock name!")
         }
     })
+}else{
+    res.redirect("/login");
+}
 });
 
 module.exports = router;

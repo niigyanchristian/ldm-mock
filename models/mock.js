@@ -10,6 +10,6 @@ const mockSchema = new mongoose.Schema({
     },
 });
 
-const Mock = mongoose.models.Mock || new mongoose.model("Mock", mockSchema);
+const Mock = new mongoose.model("Mock", mockSchema);
 
 module.exports = Mock;
