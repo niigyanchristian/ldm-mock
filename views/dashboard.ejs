@@ -209,27 +209,27 @@ function myFunctionTwo() {
                               <div class="col">
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">English</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="English" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" value="0" name="English">
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Maths</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="Maths" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" value="0" name="Maths">
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Social</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="Social" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" value="0" name="Social">
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Science</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="Science" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" value="0" name="Science">
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">BDT</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="BDT" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" value="0" name="BDT">
                                      
                                     </div>
                                     
@@ -237,22 +237,22 @@ function myFunctionTwo() {
                               <div class="col">
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">RME</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="RME" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" value="0" name="RME">
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">ICT</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="ICT" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" value="0" name="ICT">
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">TWI</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="TWI" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" value="0" name="TWI">
                                      
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">French</label>
-                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="1" max="9" name="French" required>
+                                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="1-9" min="0" max="9" value="0" name="French">
                                      
                                     </div>
                           
@@ -286,6 +286,9 @@ function myFunctionTwo() {
                       <div class="row">
                         <% students.forEach((item)=>{ %>
                         <div class="d-flex student">
+                          <%if(item.ICT===0 || item.RME===0 || item.TWI===0 || item.French===0 || item.BDT===0 || item.English===0 || item.Maths===0 || item.Social===0 || item.Science===0){%>
+                            <span class="d-flex align-content-center align-items-center" style="color: red; font-size: 20px;">|</span>
+                            <%}%>
                             <div class="col-5  p-2" style="background-color: rgba(30, 56, 133, 0.063);"><%= item.name %></div>
                             <div class="col-3 px-3 p-2" style="background-color: rgba(11, 229, 32, 0.062);"><%= item.aggregate %></div>
                             <div class="col-4 edit_container d-sm-flex p-1" style="background-color: rgba(210, 93, 75, 0.063);">

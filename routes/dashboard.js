@@ -11,6 +11,9 @@ if(req.isAuthenticated()){
     Student.find((err,findStudent)=>{
         if(find.length>0){
             let mockId = find[find.length-1]._id.toString();
+            console.log('====================================');
+            console.log(findStudent);
+            console.log('====================================');
             res.render("dashboard",{mock:find,students:findStudent,mockId});
         }else{
             res.render("addmock")
