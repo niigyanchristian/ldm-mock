@@ -13,7 +13,7 @@ router.route('/')
                 mockName
             }).then((find)=>
             res.redirect("dashboard")
-            ).catch((e)=> console.log(e))
+            ).catch((e)=> console.log("erro in finding mock",e))
         }else{
             res.send("Mr. Eric "+mockName+" already exist as mock name!")
         }

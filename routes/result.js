@@ -1,8 +1,6 @@
 const express = require('express');
 const Mock = require('../models/mock');
-const Student=require('../models/student')
-const Result=require('../models/results')
-const { getRemark } = require('../functions/remark');
+const Student=require('../models/student');
 const router = express.Router();
 
 router.route('/:id')
@@ -11,40 +9,8 @@ router.route('/:id')
     
     
      const id = req.params.id;
-    const addresult=()=>{
-        Mock.findById(id,async (err,find)=>{
-
-           await find.students.forEach(async element => {
-                Student.findById(element._id,(err,findStudent)=>{
-                
-                    Result.findOne({name:findStudent.name},(err,find)=>{
-                        if(!find){
-                            Result.create({
-                                name:findStudent.name,
-                                mockid:id,
-                                English: findStudent.English,
-                                Maths: findStudent.Maths,
-                                Social: findStudent.Social,
-                                Science: findStudent.Science,
-                                RME: findStudent.RME,
-                                ICT: findStudent.ICT,
-                                TWI: findStudent.TWI,
-                                French: findStudent.French,
-                                BDT: findStudent.BDT,
-                                aggregate: findStudent.aggregate,
-                                remarks: getRemark(findStudent.aggregate)
-                            }).then((item)=>{console.log("student added!")
-                        }).catch((e)=> {console.log(e)})
-                        }
-                    })
-                    
-                })
-            });
-        })
-        
-        }
         const getResult=(go)=>{
-            Result.find({mockid:id},(err,find)=>{
+            Student.find({mockId:id},(err,find)=>{
                 let s=find;
             s.sort((a,b)=>{
                 return a.name.localeCompare(b.name);
@@ -72,11 +38,9 @@ router.route('/:id')
                 return i + "th";
             }
                 
-                Result.findByIdAndUpdate(element._id,{position:ordinal_suffix_of(index+1)},(err,find)=>{
-                    
-                })
+                Student.findByIdAndUpdate(element._id,{position:ordinal_suffix_of(index+1)},(err,find)=>{})
             });
-            Result.find({mockid:id},(err,find)=>{
+            Student.find({mockId:id},(err,find)=>{
                 if(go ===1 || go===2){
                     getResult(go+1)
                 }else{
@@ -84,14 +48,13 @@ router.route('/:id')
                     Mock.findById(id,(err,findMockName)=>{
                        let sortedData = find.sort((a,b)=>{
                             return a.aggregate - b.aggregate;
-                        })
-                        res.render("results",{data:sortedData,mockName:findMockName.mockName})
+                        });
+                        res.render("results",{data:sortedData,mockName:findMockName.mockName});
                     })
                 }
 
             })
         }
-    await addresult();
     getResult(1);
 }else{
     res.redirect("/login");

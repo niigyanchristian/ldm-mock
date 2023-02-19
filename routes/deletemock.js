@@ -1,6 +1,5 @@
 const express = require('express');
 const Mock = require('../models/mock');
-const Result = require('../models/results');
 const Student = require('../models/student');
 const router = express.Router();
 
@@ -12,16 +11,14 @@ post(function(req, res) {
     Mock.findByIdAndDelete(mockId).
     then(find=>{
         find.students.forEach((element,index) => {
-            Student.findByIdAndDelete(element,(err,findStudent)=>{
-                Result.findOneAndDelete({name:findStudent.name},(err,find)=>{})
-            }) 
+            Student.findByIdAndDelete(element,(err,findStudent)=>{}) 
         });
         return true;
     }).
     then(data=>{
         data ? res.redirect('dashboard') : null;
     }).
-    catch(e=>console.log(e));
+    catch(e=>console.log("err in deleting mock",e));
 }else{
     res.redirect("/login");
 }

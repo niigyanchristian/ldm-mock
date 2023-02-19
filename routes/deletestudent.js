@@ -1,6 +1,5 @@
 const express = require('express');
 const Mock = require('../models/mock');
-const Result = require('../models/results');
 const Student = require('../models/student');
 const router = express.Router();
 
@@ -16,9 +15,6 @@ post(function(req, res) {
              return item._id.toString() !== studentId
          }
          Mock.findByIdAndUpdate(mockId,{students:data},(err,find)=>{});
-         Result.findOneAndDelete({name:studentname},(err,find)=>{
-             
-         })
     })
     Student.findByIdAndDelete(studentId,(err,find)=>{
      !err ? res.redirect("/dashboard") : null;

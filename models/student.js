@@ -43,7 +43,15 @@ const studentSchema = new mongoose.Schema({
     aggregate:{
         type:Number,
         default:54
-    }
+    },
+    remarks:{
+        type:String,
+        default:null
+    },
+    position:{
+        type:String,
+        default:null
+    },
 });
 
 const Student = mongoose.models.Student || new mongoose.model("Student", studentSchema);

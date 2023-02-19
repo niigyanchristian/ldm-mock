@@ -2,6 +2,7 @@ const express = require('express');
 const Mock = require('../models/mock');
 const Student = require('../models/student');
 const { calcAggregate } = require('../functions/calcAggregate');
+const { getRemark } = require('../functions/remark');
 const router = express.Router();
 
 router.route('/').
@@ -21,8 +22,9 @@ post(async (req,res)=>{
         TWI,
         French,
         BDT,
-        aggregate
-    });
+        aggregate,
+        remarks: getRemark(aggregate)
+        });
     const addStudent=(id)=>{
         Mock.findById(mockId,(err,findMock)=>{
             findMock.students.push(id.toString());

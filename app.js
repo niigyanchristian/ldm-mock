@@ -84,7 +84,7 @@ app.get("/logout", function(req, res) {
 app.post('/register',(req,res)=>{
     User.register({username:req.body.username}, req.body.password, (err,user)=>{
         if(err){
-            console.log(err);
+            console.log("error occured whiles registering a user",err);
             res.redirect('/register');
         }else{
             passport.authenticate("local")(req,res,()=>{
@@ -101,7 +101,7 @@ app.post('/login',(req,res)=>{
     });
     req.login(user, function(err) {
         if(err){
-            console.log(err);
+            console.log("error occured whiles loging a user",err);
         }else{
             passport.authenticate('local')(req,res,()=>{
                 res.redirect('dashboard')
@@ -113,7 +113,7 @@ app.post('/login',(req,res)=>{
 
 
 app.listen(process.env.PORT || 3000,()=>{
-    console.log("Mock Backend Is Running On Port 3000");
+    console.log("Mock Backend Is Running On Render");
 });
 
 

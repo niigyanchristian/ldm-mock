@@ -2,6 +2,7 @@ const express = require('express');
 const Mock = require('../models/mock');
 const Student = require('../models/student');
 const { calcAggregate } = require('../functions/calcAggregate');
+const { getRemark } = require('../functions/remark');
 
 const router = express.Router();
 
@@ -25,8 +26,8 @@ post((req,res)=>{
     if(req.isAuthenticated()){
     let {studentname,English,Maths,Social,Science,RME,ICT,TWI,BDT,French,studentId} = req.body;
     let aggregate= calcAggregate(ICT,RME,TWI,French,BDT,English,Maths,Social,Science)
-    Student.findByIdAndUpdate(studentId,{name:studentname,English,Maths,Social,Science,RME,ICT,TWI,BDT,French,aggregate},(err)=>{
-        err ? console.log(err) : res.redirect('dashboard');
+    Student.findByIdAndUpdate(studentId,{name:studentname,English,Maths,Social,Science,RME,ICT,TWI,BDT,French,aggregate,remarks: getRemark(aggregate)},(err)=>{
+        err ? console.log("err in updating student",err) : res.redirect('dashboard');
     })
 }else{
     res.redirect("/login");
